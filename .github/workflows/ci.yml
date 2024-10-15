@@ -19,6 +19,23 @@ jobs:
                 PYTHON_VERSION: 3.13.0
               run: |
                 ./scripts/build_linux.sh
+    manylinux:
+        runs-on: ubuntu-latest
+        steps:
+          - name: checkout
+            uses: actions/checkout@v4
+          - name: Build
+            env:
+                BUILD_NUM: ${{ github.run_id }}
+                PYTHON_VERSION: 3.13.0
+            run: >
+              docker run --rm
+              --volume "$(pwd):/io"
+              --env PYTHON_VERSION
+              --env BUILD_NUM
+              --workdir /io
+              quay.io/pypa/manylinux2014_x86_64
+              /io/scripts/build_linux.sh
 #     linux:
 #         runs-on: ubuntu-latest
 #         steps:

@@ -22,7 +22,7 @@ python_dir=Python-${PYTHON_VERSION}
 python_tgz=${python_dir}.tgz
 python_url=https://www.python.org/ftp/python/${PYTHON_VERSION}/${python_tgz}
 
-yum install -y wget chrpath
+yum install -y wget chrpath perl-IPC-Cmd
 
 #if test $(which chrpath >/dev/null) -ne 0; then
 #    sudo apt-get install chrpath

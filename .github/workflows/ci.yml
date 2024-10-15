@@ -35,7 +35,7 @@ jobs:
               --env BUILD_NUM
               --workdir /io
               quay.io/pypa/manylinux2014_x86_64
-              /io/scripts/build_linux.sh
+              /io/scripts/build_manylinux.sh
 #     linux:
 #         runs-on: ubuntu-latest
 #         steps:
